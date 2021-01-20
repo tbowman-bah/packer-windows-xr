@@ -1,0 +1,75 @@
+{
+  "builders": [
+    {
+			"output_directory": "virtualbox-{{user `vm_name`}}",
+      "headless": "{{user `headless`}}",
+      "boot_command": "",
+      "boot_wait": "10m",
+      "vm_name": "{{user `vm_name`}}",
+      "type": "virtualbox-iso",
+      "guest_os_type": "Windows10_64",
+			"guest_additions_path": "C:/Windows/Temp/VBoxGuestAdditions.iso",
+      "guest_additions_mode": "upload",
+      "format": "ova",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum": "sha256:{{user `iso_checksum`}}",
+      "communicator": "winrm",
+      "winrm_username": "{{user `username`}}",
+      "winrm_password": "{{user `username`}}",
+      "winrm_timeout": "5h",
+      "winrm_port": "5985",
+      "winrm_use_ssl": "false",
+      "winrm_insecure": "true",
+      "cpus": "4",
+      "disk_size": "60000",
+      "memory": "4096",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--vram","128" ],
+				["modifyvm", "{{.Name}}", "--graphicscontroller","vboxsvga" ]
+      ],
+      "floppy_files": [
+        "{{user `autounattend`}}",
+        "./scripts/fixnetwork.ps1",
+				"./scripts/enable-winrm.ps1",
+				"./scripts/disable-winrm.ps1",
+				"./scripts/disable-screensaver.ps1",
+				"./scripts/updates-service.ps1",
+				"./scripts/win-updates.ps1"
+      ],
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\""
+    }
+  ],
+	"variables": {
+		"_comment": "Variables below should be overridden by user",
+		"iso_url": "",
+		"iso_checksum": "",
+		"autounattend": "./answer_files/win10/autounattend.xml",
+		"vm_name" :"Windows10_64_base",
+		"headleass": true
+	},
+	"post-processors": [
+		[
+			{	
+				"type": "vagrant",
+				"compression_level": "9",
+				"output": "packer_{{.Provider}}_{{user `vm_name`}}.box",
+				"keep_input_artifact": false
+			}
+		]
+	],
+	"provisioners": [
+		{
+			"type": "powershell",
+			"elevated_user": "{{user `username}}",
+      "elevated_password": "{{user `username`}}",
+			"execute_command": "powershell -ExecutionPolicy ByPass -File {{.Path}}",
+			"scripts" : [
+				"./scripts/enable-guest-additions.ps1"
+			]
+		},
+		{
+			"type": "windows-restart",
+			"pause_before": "10s"
+		}
+	]
+}
