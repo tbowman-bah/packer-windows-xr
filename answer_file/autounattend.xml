@@ -77,13 +77,13 @@
         </component>
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
             <SetupUILanguage>
-                <UILanguage>fr-FR</UILanguage>
+                <UILanguage>en-US</UILanguage>
             </SetupUILanguage>
-            <InputLocale>040c:0000040c</InputLocale>
-            <SystemLocale>fr-FR</SystemLocale>
-            <UILanguage>fr-FR</UILanguage>
-            <UILanguageFallback>fr-FR</UILanguageFallback>
-            <UserLocale>fr-FR</UserLocale>
+            <InputLocale>0409:00020409</InputLocale>
+            <SystemLocale>en-US</SystemLocale>
+            <UILanguage>en-US</UILanguage>
+            <UILanguageFallback>en-US</UILanguageFallback>
+            <UserLocale>en-US</UserLocale>
         </component>
     </settings>
     <settings pass="offlineServicing">
@@ -93,10 +93,10 @@
     </settings>
     <settings pass="oobeSystem">
         <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <InputLocale>040c:0000040c</InputLocale>
-            <SystemLocale>fr-FR</SystemLocale>
-            <UILanguage>fr-FR</UILanguage>
-            <UserLocale>fr-FR</UserLocale>
+            <InputLocale>0409:00020409</InputLocale>
+            <SystemLocale>en-US</SystemLocale>
+            <UILanguage>en-US</UILanguage>
+            <UserLocale>en-US</UserLocale>
         </component>
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
             <UserAccounts>
@@ -241,12 +241,11 @@
             </OEMInformation>
             <!-- Rename computer here. -->
             <ComputerName>vmr-win</ComputerName>
-            <TimeZone>Romance Standard Time</TimeZone>
+            <TimeZone>Greenwich Standard Time</TimeZone>
             <RegisteredOwner/>
         </component>
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Security-SPP-UX" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
             <SkipAutoActivation>true</SkipAutoActivation>
         </component>
     </settings>
-    <cpi:offlineImage xmlns:cpi="urn:schemas-microsoft-com:cpi" cpi:source="catalog:d:/sources/install_windows 7 ENTERPRISE.clg"/>
 </unattend>
