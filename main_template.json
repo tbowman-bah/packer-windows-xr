@@ -43,7 +43,7 @@
 		"_comment": "Variables below should be overridden by user",
 		"iso_url": "",
 		"iso_checksum": "",
-		"autounattend": "./answer_files/win10/autounattend.xml",
+		"autounattend": "./answer_file/autounattend.xml",
 		"vm_name" :"Windows10_64_base",
 		"headleass": true
 	},
