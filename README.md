@@ -42,4 +42,4 @@ All contributions are welcome.
 
 ## Acknowledgments
 
-
+Thanks to [StefanScherer](https://github.com/StefanScherer/packer-windows) for his work by providing the code on which some of this repository is based.
