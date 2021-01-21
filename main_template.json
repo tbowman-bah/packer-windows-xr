@@ -45,7 +45,8 @@
 		"iso_checksum": "",
 		"autounattend": "./answer_file/autounattend.xml",
 		"vm_name" :"Windows10_64_base",
-		"headleass": true
+		"headless": "true",
+    "username": "vmr"
 	},
 	"post-processors": [
 		[
@@ -60,7 +61,7 @@
 	"provisioners": [
 		{
 			"type": "powershell",
-			"elevated_user": "{{user `username}}",
+			"elevated_user": "{{user `username`}}",
       "elevated_password": "{{user `username`}}",
 			"execute_command": "powershell -ExecutionPolicy ByPass -File {{.Path}}",
 			"scripts" : [
