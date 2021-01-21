@@ -16,7 +16,7 @@
       "communicator": "winrm",
       "winrm_username": "{{user `username`}}",
       "winrm_password": "{{user `username`}}",
-      "winrm_timeout": "15m",
+      "winrm_timeout": "2h",
       "winrm_port": "5985",
       "winrm_use_ssl": "false",
       "winrm_insecure": "true",

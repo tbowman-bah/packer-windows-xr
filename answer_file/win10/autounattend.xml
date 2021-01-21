@@ -32,7 +32,8 @@
                 <FullName>vmr Admin</FullName>
                 <Organization>vmr Inc.</Organization>
                 <ProductKey>
-                    <WillShowUI>OnError</WillShowUI>
+                    <key></key>
+                    <WillShowUI>Never</WillShowUI>
                 </ProductKey>
                 <!-- Product Key from https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise -->
                 <!--             <ProductKey>
