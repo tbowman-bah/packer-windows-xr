@@ -1,6 +1,6 @@
 ---
-- name: Windows R + Rtools
-  hosts: windows
+- name: Windows hosts ping
+  hosts: windows10
   tasks:
     - name: ping
       win_ping:
@@ -9,8 +9,27 @@
     #    category_names:
     #      - SecurityUpdates
     #    reboot: yes
-    - name: MiKTeX install
-      win_package:
-        path: "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-21.1-x64.exe"
-        arguments: --auto-install=yes --common-install=C:\miktex --shared --unattended | Out-Null
+
+- name: install R, Rtools, dependencies and sshd
+  hosts: windows10
+  roles:
+    - R
+      #    - Rtools
+      #- msys2
+      #- MikTex
+      #- Pandoc
+
+- name: Clean
+  hosts: windows10
+  tasks:
+    - name: clean Temp dir
+      win_command: cmd.exe /c DEL /F/Q/S C:\Windows\Temp\*.*
+
+- name: Reboot after install
+  hosts: windows10
+  tasks: 
+    - name: Reboot windows
+      win_reboot:
+        reboot_timeout: 3600
+        post_reboot_delay: 1200
 

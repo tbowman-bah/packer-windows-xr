@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
 	config.vm.provider "virtualbox" do |vb|
      # Display the VirtualBox GUI when booting the machine
      vb.gui = true
-		 vb.name = "windows10R4"
+		 vb.name = "windows10R"
 		 vb.customize ["modifyvm", :id, "--memory", 4096]
      vb.customize ["modifyvm", :id, "--cpus", 3]
      vb.customize ["modifyvm", :id, "--vram", 128]
@@ -26,7 +26,10 @@ Vagrant.configure("2") do |config|
 	config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provision-r/playbook.yml"
 		ansible.inventory_path = "provision-r/group_vars/inventory.yml"
-		ansible.verbose = "-vv"
+    ansible.extra_vars = {
+      ansible_user: "vmr"
+    }
+		ansible.verbose = "-vvvv"
 		ansible.limit= "windows"
   end
 end

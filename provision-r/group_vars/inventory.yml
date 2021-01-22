@@ -1,7 +1,7 @@
 windows:
   hosts:
-    windows:
-      ansilble_host:127.0.0.1
+    windows10:
+      ansible_host: 127.0.0.1
   vars:
     ansible_user: vmr
     ansible_password: vmr

@@ -1,7 +1,19 @@
-- name: copy R script
-  win_copy:
-    src: ./files/install-r.ps1
-    dest: 'C:\Windows\Temp\'
-    remote_src: no
-- name: Install R
-  win_command: powershell.exe -File C:\Windows\Temp\install-r.ps1
+- name: Download R
+  win_get_url:
+    url : 'https://cran.biotools.fr/bin/windows/base/old/{{ r_version }}/R-{{ r_version }}-win.exe'
+    dest: 'C:\Windows\Temp\R-win.exe'
+
+- name: Install R Project
+  ansible.windows.win_package:
+    path: C:\Windows\Temp\R-win.exe
+    #arguments: /VERYSILENT /DIR='C:\R\'
+    state: present
+ 
+# Old version
+#- name: copy R script
+#  win_copy:
+#    src: ./files/install-r.ps1
+#    dest: 'C:\Windows\Temp\'
+#    remote_src: no
+#- name: Install R
+#  win_command: powershell.exe -File C:\Windows\Temp\install-r.ps1
