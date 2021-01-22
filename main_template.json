@@ -43,18 +43,22 @@
 		"_comment": "Variables below should be overridden by user",
 		"iso_url": "",
 		"iso_checksum": "",
-		"autounattend": "./answer_file/autounattend.xml",
+		"autounattend": "./answer_file/win10EntEval/autounattend.xml",
 		"vm_name" :"Windows10_64_base",
 		"headless": "true",
-    "username": "vmr"
+    "username": "vmr",
+    "vagrantcloud_token": "",
+    "boxtag": "",
+    "version": "4.0.3",
+    "version_description": "Windows 10 OS + R environment"
 	},
 	"post-processors": [
 		[
 			{	
 				"type": "vagrant",
 				"compression_level": "9",
-				"output": "packer_{{.Provider}}_{{user `vm_name`}}.box",
-				"keep_input_artifact": false
+				"output": "{{.Provider}}_{{user `vm_name`}}.box",
+				"keep_input_artifact": true
 			}
 		]
 	],
@@ -71,6 +75,12 @@
 		{
 			"type": "windows-restart",
 			"pause_before": "10s"
-		}
+		},
+    {
+      "type": "ansible",
+      "playbook_file": "./provision-r/playbook.yml",
+      "inventory_file": "groups_vars/inventory.yml",
+      "extra_arguments": [" --limits windows "]
+    }
 	]
 }

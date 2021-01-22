@@ -1,0 +1,8 @@
+r_pkg_bioc:
+  - Biostrings
+r_pkg_cran:
+  - testthat
+  - pkgload
+  - devtools
+#r_pkg_github:
+#r_pkg_local:

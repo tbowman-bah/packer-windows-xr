@@ -1,0 +1,7 @@
+- name: copy R script
+  win_copy:
+    src: ./files/install-r.ps1
+    dest: 'C:\Windows\Temp\'
+    remote_src: no
+- name: Install R
+  win_command: powershell.exe -File C:\Windows\Temp\install-r.ps1

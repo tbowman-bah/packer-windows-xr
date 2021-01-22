@@ -1,0 +1,7 @@
+- name: copy R packages script
+  win_copy:
+    src: ./files/install-r-packages.sh
+    dest: 'C:\Windows\Temp\'
+    remote_src: no
+- name: Install R packages
+  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\install-r-packages.sh

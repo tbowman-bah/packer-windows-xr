@@ -1,0 +1,15 @@
+windows:
+  hosts:
+    windows:
+      ansilble_host:127.0.0.1
+  vars:
+    ansible_user: vmr
+    ansible_password: vmr
+    ansible_port: 55985
+    ansible_connection: winrm
+    ansible_winrm_read_timeout_sec: 1200
+    ansible_winrm_transport: basic
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_scheme: http
+
+

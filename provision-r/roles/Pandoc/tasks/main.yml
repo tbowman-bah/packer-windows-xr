@@ -1,0 +1,7 @@
+- name: copy pandoc install script
+  win_copy:
+    src: ./files/install-pandoc.ps1
+    dest: 'C:\Windows\Temp\'
+    remote_src: no
+- name: Install Pandoc
+  win_command: powershell.exe -File C:\Windows\Temp\install-pandoc.ps1

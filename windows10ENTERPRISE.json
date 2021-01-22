@@ -2,7 +2,11 @@
 	"iso_url": "19042.631.201119-0144.20h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso",
   "iso_checksum":"32C7B0A51A48CC4F67C250BE4FE2B384FEBB9CC864C5B77A052D4E2845394EAC",
 	"autounattend": "./answer_file/win10Enterprise/autounattend.xml",
-	"vm_name" : "Windows10_64_ENTEVAL",
+	"vm_name" : "Windows10_64_EntEval",
 	"headless": "true",
-  "username": "vmr"
+  "username": "vmr",
+  "tagbox": "",
+  "vagrantcloud_token": "",
+  "version_description": "windows 10 Enterprise Eval",
+  "version": ""
 }

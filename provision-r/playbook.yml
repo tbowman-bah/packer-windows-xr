@@ -1,0 +1,16 @@
+---
+- name: Windows R + Rtools
+  hosts: windows
+  tasks:
+    - name: ping
+      win_ping:
+    #- name: Install security updates
+    #  win_updates:
+    #    category_names:
+    #      - SecurityUpdates
+    #    reboot: yes
+    - name: MiKTeX install
+      win_package:
+        path: "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-21.1-x64.exe"
+        arguments: --auto-install=yes --common-install=C:\miktex --shared --unattended | Out-Null
+

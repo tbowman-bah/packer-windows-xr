@@ -1,0 +1,13 @@
+- name: MiKTeX install
+  win_package:
+    path: "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-21.1-x64.exe"
+    arguments: --auto-install=yes --common-install=C:\miktex --shared --unattended | Out-Null
+
+# Old verison 
+#- name: copy MiKTeX install script
+#  win_copy:
+#    src: ./files/install-miktex.ps1
+#    dest: 'C:\Windows\Temp\'
+#    remote_src: no
+#- name: Install MiKTeX
+#  win_command: powershell.exe -File C:\Windows\Temp\install-miktex.ps1

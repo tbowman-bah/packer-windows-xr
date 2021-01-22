@@ -1,0 +1,7 @@
+- name: copy Rtools script
+  win_copy:
+    src: ./files/install-rtools.ps1
+    dest: 'C:\Windows\Temp\'
+    remote_src: no
+- name: Install Rtools4
+  win_command: powershell.exe -File C:\Windows\Temp\install-rtools.ps1
