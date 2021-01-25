@@ -1,7 +1,20 @@
+- name: Download Pandoc installer
+  win_get_url:
+    url : 'https://github.com/jgm/pandoc/releases/download/{{ pandoc_version }}/pandoc-{{ pandoc_version }}-windows-x86_64.msi'
+    dest: 'C:\Windows\Temp\pandoc.msi'
+
+## may work with ansible > 2.10
+#- name: Pandoc Install
+#  ansible.windows.win_package:
+#    path: https://github.com/jgm/pandoc/releases/download/{{ pandoc_version }}/pandoc-{{ pandoc_version }}-windows-x86_64.msi
+#    arguments: TARGETDIR='C:\pandoc\' /qn /quiet /norestart
+#    state: present
+
+
 - name: copy pandoc install script
   win_copy:
     src: ./files/install-pandoc.ps1
     dest: 'C:\Windows\Temp\'
     remote_src: no
 - name: Install Pandoc
-  win_command: powershell.exe -File C:\Windows\Temp\install-pandoc.ps1
+  win_command: powershell.exe -File C:\Windows\Temp\install-pandoc.ps1 {{ pandoc_version }}

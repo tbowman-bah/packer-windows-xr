@@ -1,16 +1,19 @@
 # Install miktex for latex support
 Write-Output "Installing MiKTeX"
 
+#### Now done in tasks ####
 ## install from basic ##
-Write-Output "Downloading installer"
-$url = "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-20.11-x64.exe"
-$output = "C:\Windows\Temp\miktex.exe"
-$wcR = New-Object System.Net.WebClient
+#Write-Output "Downloading installer"
+#$url = "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-20.11-x64.exe"
+#$output = "C:\Windows\Temp\miktex.exe"
+#$wcR = New-Object System.Net.WebClient
 
-Write-Output "Downloading $url"
+#Write-Output "Downloading $url"
 #Download the zip
-$wcR.DownloadFile($url, $output)
-Write-Output "Download completed $url"
+#$wcR.DownloadFile($url, $output)
+#Write-Output "Download completed $url"
+####
+
 
 C:\Windows\Temp\miktex.exe --auto-install=yes --common-install=C:\miktex --shared --unattended | Out-Null
 

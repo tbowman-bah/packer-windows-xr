@@ -1,13 +1,20 @@
-- name: MiKTeX install
-  win_package:
-    path: "https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-21.1-x64.exe"
-    arguments: --auto-install=yes --common-install=C:\miktex --shared --unattended | Out-Null
+- name: Download MiKTek installer
+  win_get_url:
+    url : 'https://miktex.org/download/ctan/systems/win32/miktex/setup/windows-x64/basic-miktex-{{ miktex_version }}-x64.exe'
+    dest: 'C:\Windows\Temp\miktex.exe'
 
-# Old verison 
-#- name: copy MiKTeX install script
-#  win_copy:
-#    src: ./files/install-miktex.ps1
-#    dest: 'C:\Windows\Temp\'
-#    remote_src: no
-#- name: Install MiKTeX
-#  win_command: powershell.exe -File C:\Windows\Temp\install-miktex.ps1
+## should work with ansible > 2.10
+#- name: MiKTex Install
+#  ansible.windows.win_package:
+#    path: C:\Windows\Temp\miktex.exe
+#    arguments: --auto-install=yes --common-install=C:\miktex --shared --unattended | Out-Null
+#    state: present
+
+## Old verison 
+- name: copy MiKTeX install script
+  win_copy:
+    src: ./files/install-miktex.ps1
+    dest: 'C:\Windows\Temp\'
+    remote_src: no
+- name: Install MiKTeX
+  win_command: powershell.exe -File C:\Windows\Temp\install-miktex.ps1
