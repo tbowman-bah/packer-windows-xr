@@ -15,9 +15,9 @@
   vars:
     - r_cran_mirror: https://cloud.r-project.org
   roles:
-    - R
-    - Rtools
-    - msys2
+    #- R
+    #- Rtools
+    #- msys2
     - R-packages
     - MikTex
     - Pandoc

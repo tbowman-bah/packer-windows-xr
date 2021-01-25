@@ -1,21 +1,27 @@
 r_cran_mirror: https://cloud.r-projet.org
 
+## Bioconductor package list
 r_pkg_bioc:
-  - Biostrings
+
+## CRAN package list
 r_pkg_cran:
   - testthat
   - pkgload
   - devtools
+
+## github package list to install
 #r_pkg_github:
+
+## local package list to install
 #r_pkg_local:
 #
 
 msys2_system_lib:
-  - mingw-w64-{i686,x86_64}-gdal
-  - mingw-w64-{i686,x86_64}-fftw
-  - mingw-w64-{i686,x86_64}-geos
-  - mingw-w64-{i686,x86_64}-libxml2
-  - mingw-w64-{i686,x86_64}-tools-git
-  - mingw-w64-{i686,x86_64}-tools
-  - msys/vim
+  - !unsafe "mingw-w64-{i686,x86_64}-gdal"
+  - !unsafe 'mingw-w64-{i686,x86_64}-fftw'
+  - !unsafe 'mingw-w64-{i686,x86_64}-geos'
+  - !unsafe 'mingw-w64-{i686,x86_64}-libxml2'
+  - !unsafe 'mingw-w64-{i686,x86_64}-tools-git'
+  - !unsafe 'mingw-w64-{i686,x86_64}-tools'
+  - !unsafe 'msys/vim'
 
