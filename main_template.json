@@ -59,7 +59,15 @@
 				"compression_level": "9",
 				"output": "{{.Provider}}_{{user `vm_name`}}.box",
 				"keep_input_artifact": true
-			}
+			},
+      {
+        "type": "vagrant-cloud",
+        "box_tag": "{{ user `boxtag` }}",
+        "access_token": "{{user `vagrantcloud_token` }}",
+        "version": "{{user `version` }}.{{timestamp}}",
+        "keep_input_artifact": false,
+        "version_description": "{{ user `version_description` }}"
+      }
 		]
 	],
 	"provisioners": [

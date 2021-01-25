@@ -8,7 +8,7 @@
 #  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\install-r-packages.sh
 
 - name: install msys2 system libraries
-  win_command: C:\Rtools\usr\bin\bash.exe -lc "pacman --noconfirm -S {{ item }}"
+  win_command: C:\Rtools\usr\bin\bash.exe -lc "pacman --noconfirm -yS {{ item }}"
   loop: "{{ msys2_system_lib }}"
   when: msys2_system_lib is defined
 
