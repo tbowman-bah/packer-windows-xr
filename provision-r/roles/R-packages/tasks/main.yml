@@ -1,7 +1,37 @@
-- name: copy R packages script
-  win_copy:
-    src: ./files/install-r-packages.sh
-    dest: 'C:\Windows\Temp\'
-    remote_src: no
-- name: Install R packages
-  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\install-r-packages.sh
+## Old version using script
+#- name: copy R packages script
+#  win_copy:
+#    src: ./files/install-r-packages.sh
+#    dest: 'C:\Windows\Temp\'
+#    remote_src: no
+#- name: Install R packages
+#  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\install-r-packages.sh
+
+- name: install msys2 system libraries
+  command: pacman --noconfirm -S "{{ item }}"
+  loop: "{{ msys2_system_lib  }}"
+  when: msys2_system_lib is defined
+
+- name: install BiocManager
+  command: Rscript -e "install.packages(c('BiocManager'), repo={{ r_cran_mirror }}, ask=FALSE)"
+
+- name: install Bioconductor pacakges
+  command: Rscript -e "BiocManager::install(c('{{ item }}'))"
+  loop: "{{ r_pkg_bioc }}"
+  when: r_pkg_bioc is defined
+
+- name: install CRAN packages
+  command: Rscript -e "install.packages(c('{{ item }}'), repo={{ r_cran_mirror }}, ask=FALSE)"
+  loop: "{{ r_pkg_cran }}"
+  when: r_pkg_cran is defined
+
+- name: install github packages
+  command: Rscript -e "devtools::install_github(c('{{ item }}'))"
+  loop: "{{ r_pkg_github }}"
+  when: r_pkg_github is defined
+
+- name: install local R packages
+  command: R CMD INSTALL "{{ item }}"
+  loop: "{{ r_pkg_local }}"
+  when: r_pkg_local is defined
+

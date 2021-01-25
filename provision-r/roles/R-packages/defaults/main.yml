@@ -1,3 +1,5 @@
+r_cran_mirror: https://cloud.r-projet.org
+
 r_pkg_bioc:
   - Biostrings
 r_pkg_cran:
@@ -6,3 +8,14 @@ r_pkg_cran:
   - devtools
 #r_pkg_github:
 #r_pkg_local:
+#
+
+msys2_system_lib:
+  - mingw-w64-{i686,x86_64}-gdal
+  - mingw-w64-{i686,x86_64}-fftw
+  - mingw-w64-{i686,x86_64}-geos
+  - mingw-w64-{i686,x86_64}-libxml2
+  - mingw-w64-{i686,x86_64}-tools-git
+  - mingw-w64-{i686,x86_64}-tools
+  - msys/vim
+

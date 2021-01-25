@@ -18,3 +18,6 @@
     remote_src: no
 - name: Install R
   win_command: powershell.exe -File C:\Windows\Temp\install-r.ps1
+
+- name: Configure R env
+  win_command: Rscript -e "dir.create(Sys.getenv('R_LIBS_USER'), recursive=TRUE)"
