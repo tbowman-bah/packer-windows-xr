@@ -18,7 +18,7 @@ while getopts c:h flag
 do
     case "${flag}" in
         c) VAGRANTCLOUD_TOKEN=${OPTARG};;
-        h) usage();;
+        h) usage;;
     esac
 done
 
@@ -30,7 +30,7 @@ packer build \
 	-var "iso_url=${ISO}" \
 	-var "iso_checksum=${CHECKSUM}" \
 	-var "autounattend=${AUTOUNATTEND}" \
-  -var "tagbox=${BOX_TAG}" \
+  -var "boxtag=${BOX_TAG}" \
   -var "vagrantcloud_token=${VAGRANTCLOUD_TOKEN}" \
   -var "version=${VERSION}" \
   -var "version_description=${DESCRIPTION}" \

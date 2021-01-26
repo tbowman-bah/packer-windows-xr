@@ -5,7 +5,7 @@
 	"vm_name" : "Windows10_64_EntEval",
 	"headless": "true",
   "username": "vmr",
-  "tagbox": "",
+  "boxtag": "",
   "vagrantcloud_token": "",
   "version_description": "windows 10 Enterprise Eval",
   "version": ""
