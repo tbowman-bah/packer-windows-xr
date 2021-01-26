@@ -87,8 +87,8 @@
     {
       "type": "ansible",
       "playbook_file": "./provision-r/playbook.yml",
-      "inventory_file": "groups_vars/inventory.yml",
-      "extra_arguments": [" --limits windows "]
+      "inventory_file": "./provision-r/groups_vars/inventory.yml",
+      "extra_arguments": [" --limit windows "]
     }
 	]
 }
