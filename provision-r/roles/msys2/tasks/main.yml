@@ -1,10 +1,13 @@
-- name: copy msys2 config script
-  win_copy:
-    src: ./files/configure-msys2.sh
-    dest: 'C:\Windows\Temp\'
-    remote_src: no
-- name: Configure MSYS2
-  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\configure-msys2.sh
+
+#### Old version adding cert repositories msys2
+## and some dependencies install
+#- name: copy msys2 config script
+#  win_copy:
+#    src: ./files/configure-msys2.sh
+#    dest: 'C:\Windows\Temp\'
+#    remote_src: no
+#- name: Configure MSYS2
+#  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\configure-msys2.sh
 - name: copy msys2 sshd install script
   win_copy:
     src: ./files/install-msys2-sshd.sh

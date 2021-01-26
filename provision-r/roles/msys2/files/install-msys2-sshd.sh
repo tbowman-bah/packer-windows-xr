@@ -29,9 +29,12 @@
 #   24 Aug 2015 — run server with -e to redirect logs to /var/log/sshd.log
 #
 
-pacman -Syy
-pacman -S openssh cygrunsrv mingw-w64-x86_64-editrights --noconfirm
-pacman -S git --noconfirm
+## install dependencies : openssh ans cygrunsrv
+pacman -S openssh cygrunsrv --noconfirm
+## get editrights and install it
+curl -O https://repo.msys2.org/mingw/x86_64/mingw-w64-x86_64-editrights-1.03-3-any.pkg.tar.xz
+pacman -U mingw-w64-x86_64-editrights-1.03-3-any.pkg.tar.xz --noconfirm
+
 
 set -e
 
