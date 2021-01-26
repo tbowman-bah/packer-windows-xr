@@ -1,7 +1,7 @@
 r_cran_mirror: https://cloud.r-projet.org
 
 ## Bioconductor package list
-r_pkg_bioc:
+#r_pkg_bioc:
 
 ## CRAN package list
 r_pkg_cran:
