@@ -87,15 +87,14 @@
     {
       "type": "ansible",
       "playbook_file": "./playbook.yml",
-      "inventory_file": "./group_vars/inventory.yml",
       "use_proxy": false,
       "extra_arguments": [
-        "-l windows" ,
-        "--extra-vars",
-        "winrm_user={{ .WinRMUser }}",
-        "winrm_password={{ .WinRMPassword }}",
-        "winrm_port={{ .WinRMPort }}",
-        "ansible_winrm_server_cert_validation=ignore",
+        "-e", "ansible_password={{ .WinRMPassword }}",
+        "-e", "ansible_port={{ .WinRMPort }}",
+        "-e", "ansible_connection=winrm",
+        "-e", "ansible_winrm_server_cert_validation=ignore",
+        "-e", "ansible_winrm_scheme=http",
+        "-e", "ansible_winrm_transport=basic",
         "-vvv" ],
       "user": "{{ user `username` }}"
     }
