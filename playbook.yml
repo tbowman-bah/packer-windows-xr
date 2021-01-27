@@ -1,5 +1,6 @@
 ---
 - name: Windows hosts ping
+  hosts: all
   tasks:
     - name: ping
       win_ping:
@@ -10,6 +11,7 @@
     #    reboot: yes
 
 - name: install R, Rtools, dependencies and sshd
+  hosts: all
   vars:
     - r_cran_mirror: https://cloud.r-project.org
   roles:
@@ -21,11 +23,13 @@
     - Pandoc
 
 - name: Clean
+  hosts: all
   tasks:
     - name: clean Temp dir
       win_command: cmd.exe /c DEL /F/Q/S C:\Windows\Temp\*.*
 
 - name: Reboot after install
+  hosts: all
   tasks: 
     - name: Reboot windows
       win_reboot:
