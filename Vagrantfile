@@ -24,8 +24,8 @@ Vagrant.configure("2") do |config|
   end
 	
 	config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provision-r/playbook.yml"
-		ansible.inventory_path = "provision-r/group_vars/inventory.yml"
+    ansible.playbook = "./provision-r/playbook.yml"
+		ansible.inventory_path = "./provision-r/group_vars/inventory.yml"
     ansible.extra_vars = {
       ansible_user: "vmr"
     }
