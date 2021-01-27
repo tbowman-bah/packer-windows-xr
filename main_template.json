@@ -86,9 +86,18 @@
 		},
     {
       "type": "ansible",
-      "playbook_file": "./provision-r/playbook.yml",
-      "inventory_file": "./provision-r/groups_vars/inventory.yml",
-      "extra_arguments": [" --limit windows "]
+      "playbook_file": "./playbook.yml",
+      "inventory_file": "./group_vars/inventory.yml",
+      "use_proxy": false,
+      "extra_arguments": [
+        "-l windows" ,
+        "--extra-vars",
+        "winrm_user={{ .WinRMUser }}",
+        "winrm_password={{ .WinRMPassword }}",
+        "winrm_port={{ .WinRMPort }}",
+        "ansible_winrm_server_cert_validation=ignore",
+        "-vvv" ],
+      "user": "{{ user `username` }}"
     }
 	]
 }

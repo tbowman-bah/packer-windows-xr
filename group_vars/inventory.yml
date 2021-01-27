@@ -1,11 +1,11 @@
 windows:
   hosts:
     windows10:
-      ansible_host: 127.0.0.1
+      ansible_host: localhost
   vars:
     ansible_user: vmr
     ansible_password: vmr
-    ansible_port: 55985
+    ansible_port: 5985
     ansible_connection: winrm
     ansible_winrm_read_timeout_sec: 1200
     ansible_winrm_transport: basic
