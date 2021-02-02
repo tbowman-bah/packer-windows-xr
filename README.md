@@ -1,6 +1,7 @@
-# Packer Windows (templates)
+# Packer Windows (templates) and R environment
 
-Packer templates for Windows OS VMs creation as Vagrant Boxes.
+Packer templates for Windows OS VMs creation as Vagrant Boxes.  
+Include R, Rtools, miKteX, Pandoc.   
 
 > Currently only virtualbox and Windows10 are available
 
@@ -8,25 +9,28 @@ Packer templates for Windows OS VMs creation as Vagrant Boxes.
 
 * [Packer](https://www.packer.io/downloads)
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-
-
-## Current templates
-
-* [windows10.json](windows10.json) : variable for windows10 
+* [packer]
+* [ansible]
 
 ### Files
 
 * [answer\_file/](answer\_file/) : auto unattented install files
 * [main\_template.json](main\_template.json) : packer template
 * [scripts/](scripts/): configuration scripts
+* [playbook.yml](playbook.yml): ansible playbook
+* [roles/](roles/): ansible roles
+* [Vagrantfile](Vagrantfile): for provision debug
 
 ### Variables
 
 * [windows10.json](windows10.json) : variable for windows10 
+* [windows10ENTERPRISE.json](windows10.json) : variable for windows10 Enterprise Evaluation 
 
 ## Build Vagrant Boxes
 
-Build a VM virtualbox with windows 10.  
+> edit [build.sh](build.sh)
+
+Build a VM VirtualBox with Windows 10 and R environment.  
 
 ```
 packer build --only=virtual-iso --var-file=windows10.json main_template.json
@@ -35,6 +39,10 @@ packer build --only=virtual-iso --var-file=windows10.json main_template.json
 ## License
 
 [MIT](LICENSE)
+
+## Authors
+
+* [Jean-François Rey](https://gitlab.com/_jfrey_)
 
 ## Contributions
 
