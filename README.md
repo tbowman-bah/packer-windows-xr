@@ -8,9 +8,10 @@ Include R, Rtools, miKteX, Pandoc.
 ## Requirements
 
 * [Packer](https://www.packer.io/downloads)
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-* [packer]
-* [ansible]
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (>= 6.1.14)
+* [Packer](https://www.packer.io/)
+* [ansible](https://www.ansible.com/) (>= 2.9)
+* [Vagrant](https://www.vagrantup.com/) (optional)
 
 ### Files
 
