@@ -26,3 +26,7 @@
   ansible.windows.win_file:
     path: C:\Users\vmr\.Renviron
     state: touch
+- name: Insert path to R libs
+  community.windows.win_lineinfile:
+    path: C:\Users\vmr\.Renviron
+    line: R_USER_LIBS="C:\Users\vmr\Documents\R\win-library\4.0\"
