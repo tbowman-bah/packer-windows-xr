@@ -21,3 +21,8 @@
 
 - name: Configure R env
   win_command: Rscript -e "dir.create(Sys.getenv('R_LIBS_USER'), recursive=TRUE)"
+
+- name: create .Renviron
+  ansible.windows.win_file:
+    path: C:\Users\vmr\.Renviron
+    state: touch
