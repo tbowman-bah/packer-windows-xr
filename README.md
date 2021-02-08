@@ -1,7 +1,7 @@
 # Packer Windows (templates) and R environment
 
 Packer templates for Windows OS VMs creation as Vagrant Boxes.  
-Include R, Rtools, miKteX, Pandoc.   
+Include R, Rtools,shh server, MiKTeX, Pandoc, GitLabRunner.   
 
 > Currently only virtualbox and Windows10 are available
 

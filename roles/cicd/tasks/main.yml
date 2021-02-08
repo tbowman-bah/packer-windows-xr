@@ -1,0 +1,10 @@
+---
+- name: copy GitLab install script
+  win_copy:
+    src: ./files/install-gitlab-runner.ps1
+    dest: 'C:\Windows\Temp\'
+    remote_src: no
+
+- name: Install GitLab-Runner
+  win_command: powershell.exe -File C:\Windows\Temp\install-gitlab-runner.ps1
+

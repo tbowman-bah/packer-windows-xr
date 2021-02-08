@@ -21,6 +21,7 @@
     - R-packages
     - MikTex
     - Pandoc
+    - cicd
 
 - name: Clean
   hosts: all
