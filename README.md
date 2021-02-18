@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.com/rstuff/vms/packer-windows-r/badges/master/pipeline.svg)](https://gitlab.com/rstuff/vms/packer-windows-r/-/commits/master)
+
 # Packer Windows (templates) and R environment
 
 Packer templates for Windows OS VMs creation as Vagrant Boxes.  
