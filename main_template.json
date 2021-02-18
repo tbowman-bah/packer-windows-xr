@@ -58,7 +58,7 @@
 				"type": "vagrant",
 				"compression_level": "9",
 				"output": "{{.Provider}}_{{user `vm_name`}}.box",
-				"keep_input_artifact": true
+				"keep_input_artifact": false
 			},
       {
         "type": "vagrant-cloud",
