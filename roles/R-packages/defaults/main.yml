@@ -23,5 +23,6 @@ msys2_system_lib:
   - !unsafe 'mingw-w64-{i686,x86_64}-libxml2'
   - !unsafe 'mingw-w64-{i686,x86_64}-tools-git'
   - !unsafe 'mingw-w64-{i686,x86_64}-tools'
+  - !unsafe 'mingw-w64-{i686,x86_64}-qpdf'
   - !unsafe 'msys/vim'
 
