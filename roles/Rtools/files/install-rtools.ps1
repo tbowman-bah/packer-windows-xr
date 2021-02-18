@@ -26,7 +26,7 @@ else {
 
 # Add R to PATH
 $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
-$newPath = "$oldpath;C:\Rtools\usr\bin"
+$newPath = "$oldpath;C:\Rtools\usr\bin:C:\Rtools\mingw64\bin:C:\Rtools\mingw32\bin"
 Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
 [System.Environment]::SetEnvironmentVariable('MSYS2_PATH_TYPE', 'inherit', [System.EnvironmentVariableTarget]::Machine)
 Add-Content C:\Rtools\msys2.ini "MSYS2_PATH_TYPE=inherit"
