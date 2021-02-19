@@ -11,7 +11,7 @@
     dest: 'C:\Windows\Temp\'
     remote_src: no
 - name: Install MSYS2 ssh deamon
-  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\install-msys2-sshd.sh
+  win_command: C:\Rtools\usr\bin\sh.exe -l C:\Windows\Temp\install-msys2-sshd.sh
 - name: Enable Firewall for sshd
   win_shell: |
         netsh advfirewall firewall add rule name="SSHD" dir=in action=allow service=msys2_sshd enable=yes
