@@ -106,3 +106,12 @@ if ! net start msys2_sshd; then
     echo "ERROR: Unable to start msys2_sshd service"
     exit 1
 fi
+
+# Force MSYS on ssh connection
+cat <<"EOT" > .bashrc
+if [ -n "$SSH_CONNECTION" ]; then
+  export MSYSTEM=MSYS
+  source /etc/profile
+fi
+EOT
+
