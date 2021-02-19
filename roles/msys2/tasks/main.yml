@@ -11,11 +11,11 @@
     dest: 'C:\Windows\Temp\'
     remote_src: no
 - name: Install MSYS2 ssh deamon
-  win_command: C:\Rtools\usr\bin\sh.exe -l C:\Windows\Temp\install-msys2-sshd.sh
+  win_command: C:\Rtools\usr\bin\bash.exe -l C:\Windows\Temp\install-msys2-sshd.sh
 - name: Enable Firewall for sshd
   win_shell: |
         netsh advfirewall firewall add rule name="SSHD" dir=in action=allow service=msys2_sshd enable=yes
         netsh advfirewall firewall add rule name="SSHD" dir=in action=allow program="C:\Rtools\usr\bin\sshd.exe" enable=yes
         netsh advfirewall firewall add rule name="ssh" dir=in action=allow protocol=TCP localport=22
 - name: add environment for ssh
-  win_command: C:\Rtools\usr\bin\bash.exe -c 'echo -e \"if [ -n \\\"\$SSH_CONNECTION\\\" ]; then\n export MSYSTEM=MSYS\n source /etc/profile\n fi\" > .bashrc'
+  win_command: C:\Rtools\usr\bin\bash.exe -c 'echo -e \"if [ -n \\\"\\\$SSH_CONNECTION\\\" ]; then\\n export MSYSTEM=MSYS\\n source /etc/profile\\n fi\" > .bashrc'
