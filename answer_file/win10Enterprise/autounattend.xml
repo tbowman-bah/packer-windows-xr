@@ -83,19 +83,19 @@
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
             <UserAccounts>
                 <AdministratorPassword>
-                    <Value>vmr</Value>
+                    <Value>vagrant</Value>
                     <PlainText>true</PlainText>
                 </AdministratorPassword>
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
                         <Password>
-                            <Value>vmr</Value>
+                            <Value>vagrant</Value>
                             <PlainText>true</PlainText>
                         </Password>
                         <Description>vmr User</Description>
-                        <DisplayName>vmr</DisplayName>
+                        <DisplayName>vagrant</DisplayName>
                         <Group>administrators</Group>
-                        <Name>vmr</Name>
+                        <Name>vagrant</Name>
                     </LocalAccount>
                 </LocalAccounts>
             </UserAccounts>
@@ -107,10 +107,10 @@
             </OOBE>
             <AutoLogon>
                 <Password>
-                    <Value>vmr</Value>
+                    <Value>vagrant</Value>
                     <PlainText>true</PlainText>
                 </Password>
-                <Username>vmr</Username>
+                <Username>vagrant</Username>
                 <Enabled>true</Enabled>
             </AutoLogon>
             <FirstLogonCommands>
@@ -175,9 +175,9 @@
                     <Description>Disable Hibernation Mode</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c wmic useraccount where "name='vmr'" set PasswordExpires=FALSE</CommandLine>
+                    <CommandLine>cmd.exe /c wmic useraccount where "name='vagrant'" set PasswordExpires=FALSE</CommandLine>
                     <Order>24</Order>
-                    <Description>Disable password expiration for vmr user</Description>
+                    <Description>Disable password expiration for vagrant user</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                   <CommandLine>%SystemRoot%\System32\reg.exe HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient\ /v SpecialPollInterval /t REG_DWORD /d 600 /f</CommandLine>

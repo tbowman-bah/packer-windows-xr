@@ -4,7 +4,7 @@
 	"autounattend": "./answer_file/win10Enterprise/autounattend.xml",
 	"vm_name" : "Windows10_64_EntEval",
 	"headless": "true",
-  "username": "vmr",
+  "username": "vagrant",
   "boxtag": "",
   "vagrantcloud_token": "",
   "version_description": "windows 10 Enterprise Eval",

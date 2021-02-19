@@ -25,7 +25,7 @@
 # do not create - path trouble
 #- name: create .Renviron
 #  ansible.windows.win_file:
-#    path: C:\Users\vmr\.Renviron
+#    path: C:\Users\vagrant\.Renviron
 #    state: touch
 #- name: Configure Renviron
-#  win_command: Rscript -e "filec <- file('C:/Users/vmr/.Renviron'); writeLines(paste0('R_LIBS_USER=\'',Sys.getenv('R_LIBS_USER'),'\''), filec); close(filec)"
+#  win_command: Rscript -e "filec <- file('C:/Users/vagrant/.Renviron'); writeLines(paste0('R_LIBS_USER=\'',Sys.getenv('R_LIBS_USER'),'\''), filec); close(filec)"

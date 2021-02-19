@@ -7,8 +7,8 @@ Vagrant.configure("2") do |config|
  
   # Configure WinRM Connectivity
 	config.winrm.basic_auth_only = true
-  config.winrm.username = "vmr"
-  config.winrm.password = "vmr"
+  #config.winrm.username = "vmr"
+  #config.winrm.password = "vmr"
 
 	config.vm.provider "virtualbox" do |vb|
      # Display the VirtualBox GUI when booting the machine
@@ -26,9 +26,9 @@ Vagrant.configure("2") do |config|
 	config.vm.provision "ansible" do |ansible|
     ansible.playbook = "./playbook.yml"
 		ansible.inventory_path = "./group_vars/inventory.yml"
-    ansible.extra_vars = {
-      ansible_user: "vmr"
-    }
+    #ansible.extra_vars = {
+    #  ansible_user: "vmr"
+    #}
 		ansible.verbose = "-vvvv"
 		ansible.limit= "windows"
   end

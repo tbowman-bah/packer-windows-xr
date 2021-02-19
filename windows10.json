@@ -4,5 +4,5 @@
 	"autounattend": "./answer_file/autounattend.xml",
 	"vm_name" : "Windows10_64_base",
 	"headless": "true",
-  "username": "vmr"
+  "username": "vagrant"
 }
