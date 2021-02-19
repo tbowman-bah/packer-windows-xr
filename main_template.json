@@ -66,7 +66,8 @@
         "access_token": "{{user `vagrantcloud_token` }}",
         "version": "{{user `version` }}.{{timestamp}}",
         "keep_input_artifact": false,
-        "version_description": "{{ user `version_description` }}"
+        "version_description": "{{ user `version_description` }}",
+        "no_direct_upload": true
       }
 		]
 	],
