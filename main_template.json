@@ -1,14 +1,14 @@
 {
   "builders": [
     {
-			"output_directory": "virtualbox-{{user `vm_name`}}",
+	  "output_directory": "virtualbox-{{user `vm_name`}}",
       "headless": "{{user `headless`}}",
       "boot_command": "",
       "boot_wait": "10m",
       "vm_name": "{{user `vm_name`}}",
       "type": "virtualbox-iso",
       "guest_os_type": "Windows10_64",
-			"guest_additions_path": "C:/Windows/Temp/VBoxGuestAdditions.iso",
+	  "guest_additions_path": "C:/Windows/Temp/VBoxGuestAdditions.iso",
       "guest_additions_mode": "upload",
       "format": "ova",
       "iso_url": "{{user `iso_url`}}",
@@ -25,16 +25,16 @@
       "memory": "4096",
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--vram","128" ],
-				["modifyvm", "{{.Name}}", "--graphicscontroller","vboxsvga" ]
+		["modifyvm", "{{.Name}}", "--graphicscontroller","vboxsvga" ]
       ],
       "floppy_files": [
         "{{user `autounattend`}}",
         "./scripts/fixnetwork.ps1",
-				"./scripts/enable-winrm.ps1",
-				"./scripts/disable-winrm.ps1",
-				"./scripts/disable-screensaver.ps1",
-				"./scripts/updates-service.ps1",
-				"./scripts/win-updates.ps1"
+		"./scripts/enable-winrm.ps1",
+		"./scripts/disable-winrm.ps1",
+		"./scripts/disable-screensaver.ps1",
+		"./scripts/updates-service.ps1",
+		"./scripts/win-updates.ps1"
       ],
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\""
     }
@@ -46,11 +46,11 @@
 		"autounattend": "./answer_file/win10EntEval/autounattend.xml",
 		"vm_name" :"Windows10_64_base",
 		"headless": "true",
-    "username": "vmr",
-    "vagrantcloud_token": "",
-    "boxtag": "",
-    "version": "4.0.3",
-    "version_description": "Windows 10 OS + R environment"
+        "username": "vmr",
+        "vagrantcloud_token": "",
+        "boxtag": "",
+        "version": "4.0.3",
+        "version_description": "Windows 10 OS + R environment"
 	},
 	"post-processors": [
 		[
@@ -74,7 +74,7 @@
 		{
 			"type": "powershell",
 			"elevated_user": "{{user `username`}}",
-      "elevated_password": "{{user `username`}}",
+            "elevated_password": "{{user `username`}}",
 			"execute_command": "powershell -ExecutionPolicy ByPass -File {{.Path}}",
 			"scripts" : [
 				"./scripts/enable-guest-additions.ps1"

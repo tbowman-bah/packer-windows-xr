@@ -22,9 +22,10 @@
 - name: Configure R env
   win_command: Rscript -e "dir.create(Sys.getenv('R_LIBS_USER'), recursive=TRUE)"
 
-- name: create .Renviron
-  ansible.windows.win_file:
-    path: C:\Users\vmr\.Renviron
-    state: touch
-- name: Configure Renviron
-  win_command: Rscript -e "filec <- file('C:\\Users\\vmr\\.Renviron'); writeLines(paste0('R_LIBS_USER=',Sys.getenv('R_LIBS_USER')), filec); close(filec)"
+# do not create - path trouble
+#- name: create .Renviron
+#  ansible.windows.win_file:
+#    path: C:\Users\vmr\.Renviron
+#    state: touch
+#- name: Configure Renviron
+#  win_command: Rscript -e "filec <- file('C:/Users/vmr/.Renviron'); writeLines(paste0('R_LIBS_USER=\'',Sys.getenv('R_LIBS_USER'),'\''), filec); close(filec)"
