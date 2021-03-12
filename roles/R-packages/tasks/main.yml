@@ -13,7 +13,7 @@
   when: msys2_system_lib is defined
 
 - name: install BiocManager
-  win_command: Rscript -e "install.packages(c('BiocManager'), repo='{{ r_cran_mirror }}', ask=FALSE)"
+  win_command: Rscript -e "install.packages(c('BiocManager'), repos='{{ r_cran_mirror }}')"
 
 - name: install Bioconductor pacakges
   win_command: Rscript -e "BiocManager::install(c('{{ item }}'))"
@@ -21,7 +21,7 @@
   when: r_pkg_bioc is defined
 
 - name: install CRAN packages
-  win_command: Rscript -e "install.packages(c('{{ item }}'), repo='{{ r_cran_mirror }}', ask=FALSE)"
+  win_command: Rscript -e "install.packages(c('{{ item }}'), repos='{{ r_cran_mirror }}')"
   loop: "{{ r_pkg_cran }}"
   when: r_pkg_cran is defined
 
