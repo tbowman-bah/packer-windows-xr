@@ -117,8 +117,8 @@ EOT
 
 # change sshd configuration
 sed -i "s/#StrictModes yes/StrictModes no/" /etc/ssh/sshd_config
-sed -i "s/#PermitUserEnvironment no/PermitUserEnvironment yes" /etc/ssh/sshd_config
-sed -i "s/#AllowAgentForwarding yes/AllowAgentForwarding yes" /etc/ssh/sshd_config
+sed -i "s/#PermitUserEnvironment no/PermitUserEnvironment yes/" /etc/ssh/sshd_config
+sed -i "s/#AllowAgentForwarding yes/AllowAgentForwarding yes/" /etc/ssh/sshd_config
 
 # Add Vagrant ssh public key
 mkdir -p /home/vagrant/.ssh
