@@ -127,6 +127,6 @@ curl -o /home/vagrant/.ssh/id_rsa.pub https://raw.githubusercontent.com/hashicor
 cat /home/vagrant/.ssh/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
 chmod 600 /home/vagrant/.ssh/authorized_keys
 chmod 644 /home/vagrant/.ssh/id_rsa.pub
-chown -R vagrant:vagrant /home/vagrant/.ssh
+chown -R vagrant /home/vagrant/.ssh
 
 
