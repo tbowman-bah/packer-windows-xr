@@ -123,7 +123,7 @@ sed -i "s/#AllowAgentForwarding yes/AllowAgentForwarding yes/" /etc/ssh/sshd_con
 # Add Vagrant ssh public key
 mkdir -p /home/vagrant/.ssh
 chmod 0700 /home/vagrant/.ssh
-curl -o /home/vagrant/.shh/id_rsa.pub https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub
+curl -o /home/vagrant/.ssh/id_rsa.pub https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub
 cat /home/vagrant/.ssh/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
 chmod 600 /home/vagrant/.ssh/authorized_keys
 chmod 644 /home/vagrant/.ssh/id_rsa.pub
