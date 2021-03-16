@@ -116,17 +116,19 @@ fi
 EOT
 
 # change sshd configuration
+echo "Configuring sshd"
 sed -i "s/#StrictModes yes/StrictModes no/" /etc/ssh/sshd_config
 sed -i "s/#PermitUserEnvironment no/PermitUserEnvironment yes/" /etc/ssh/sshd_config
 sed -i "s/#AllowAgentForwarding yes/AllowAgentForwarding yes/" /etc/ssh/sshd_config
 
 # Add Vagrant ssh public key
-mkdir -p /home/vagrant/.ssh
-chmod 0700 /home/vagrant/.ssh
-curl -o /home/vagrant/.ssh/id_rsa.pub https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub
-cat /home/vagrant/.ssh/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
-chmod 600 /home/vagrant/.ssh/authorized_keys
-chmod 644 /home/vagrant/.ssh/id_rsa.pub
-chown -R vagrant /home/vagrant/.ssh
+echo "Configuring ssh private keys"
+mkdir -p /c/Users/vagrant/.ssh
+chmod 0700 /c/Users/vagrant/.ssh
+curl -o /c/Users/vagrant/.ssh/id_rsa.pub https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub
+cat /c/Users/vagrant/.ssh/id_rsa.pub >> /c/Users/vagrant/.ssh/authorized_keys
+chmod 600 /c/Users/vagrant/.ssh/authorized_keys
+chmod 644 /c/Users/vagrant/.ssh/id_rsa.pub
+chown -R vagrant /c/Users/vagrant/.ssh
 
 
