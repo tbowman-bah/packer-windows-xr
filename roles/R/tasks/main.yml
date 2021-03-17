@@ -1,5 +1,5 @@
 - name: Download R
-  win_get_url:
+  ansible.windows.win_get_url:
     url : 'https://cran.biotools.fr/bin/windows/base/old/{{ r_version }}/R-{{ r_version }}-win.exe'
     dest: 'C:\Windows\Temp\R-win.exe'
 
@@ -16,6 +16,7 @@
     src: ./files/install-r.ps1
     dest: 'C:\Windows\Temp\'
     remote_src: no
+
 - name: Install R
   win_command: powershell.exe -File C:\Windows\Temp\install-r.ps1
 
@@ -25,8 +26,10 @@
 
 - name: create Renviron
   ansible.windows.win_file:
-    path: C:\Users\vagrant\.Renviron
+    path: 'C:/Users/vagrant/.Renviron'
     state: touch
+    
 - name: Configure Renviron
   win_command: Rscript -e "filec <- file('C:/Users/vagrant/.Renviron'); writeLines('R_LIBS_USER=C:/Users/vagrant/Documents/R/win-library/4.0'), filec); close(filec)"
   #win_command: Rscript -e "filec <- file('C:/Users/vagrant/.Renviron'); writeLines(paste0('R_LIBS_USER=\'',Sys.getenv('R_LIBS_USER'),'\''), filec); close(filec)"
+
