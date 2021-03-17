@@ -1,5 +1,5 @@
 - name: Download R
-  ansible.windows.win_get_url:
+  win_get_url:
     url : 'https://cran.biotools.fr/bin/windows/base/old/{{ r_version }}/R-{{ r_version }}-win.exe'
     dest: 'C:\Windows\Temp\R-win.exe'
 
@@ -25,7 +25,7 @@
   #win_command: Rscript -e "dir.create(Sys.getenv('R_LIBS_USER'), recursive=TRUE)"
 
 - name: create Renviron
-  ansible.windows.win_file:
+  win_file:
     path: 'C:/Users/vagrant/.Renviron'
     state: touch
     
