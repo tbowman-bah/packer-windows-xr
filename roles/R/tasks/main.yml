@@ -30,6 +30,6 @@
     state: touch
     
 - name: Configure Renviron
-  win_command: Rscript -e "filec <- file('C:/Users/vagrant/.Renviron'); writeLines('R_LIBS_USER=C:/Users/vagrant/Documents/R/win-library/4.0'), filec); close(filec)"
+  win_command: Rscript -e "filec <- file('C:/Users/vagrant/.Renviron'); writeLines('R_LIBS_USER=C:/Users/vagrant/Documents/R/win-library/4.0', filec); close(filec)"
   #win_command: Rscript -e "filec <- file('C:/Users/vagrant/.Renviron'); writeLines(paste0('R_LIBS_USER=\'',Sys.getenv('R_LIBS_USER'),'\''), filec); close(filec)"
 
